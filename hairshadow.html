@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&display=swap');
+
+        * {
+            text-decoration: none;
+
+        }
+
+        .navbar {
+            background: rgb(57, 57, 57);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo a {
+            font-size: 35px;
+            font-weight: 600;
+            color: white;
+        }
+
+        li {
+            list-style: none;
+            display: inline-block;
+
+        }
+
+        li a {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 25px;
+
+        }
+
+        .logo1 {
+            padding-left: 25px;
+        }
+
+
+
+        .container {
+            position: relative;
+            width: 1195px;
+            /* Ukuran web biasa */
+            height: 3246px;
+            overflow: hidden;
+        }
+
+        .container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1195px;
+            height: 3246px;
+            object-fit: cover;
+            transition: opacity 2s ease-in-out;
+            opacity: 0;
+        }
+
+        .container img.active {
+            opacity: 1;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -450px;
+            /* hidden initially */
+            width: 250px;
+            height: 100%;
+            background-image: url('asset/MENU\ 1.jpg');
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+            transition: left 0.3s ease;
+            z-index: 1000;
+            /* overflow-y: auto; */
+            overflow-y: auto;
+            /* biar bisa scroll */
+            scrollbar-width: none;
+            /* hilangin scrollbar di Firefox */
+            -ms-overflow-style: none;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        /* Menu button image */
+        .menu-btn {
+            position: relative;
+            top: 5px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-content {
+            margin-top: 60px;
+            font-family: "Baskervville", serif;
+        }
+
+        .menu-content a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-content a:hover {
+            background-color: #000000;
+        }
+
+        .home {
+            color: white;
+            font-family: "Baskervville", serif;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo"><a href="#"><img src="asset/menu.png" width="25px;" class="menu-btn" alt="Menu Icon"></a>
+            </div>
+            <div class="logo1"><img src="asset/logo(pink).png" width=150px;></div>
+            <ul>
+                <li><a href="#"><img src="asset/icons8-magnifier-50.png" width="25px;"></a></li>
+                <li><a href="#"><img src="asset/icons8-contact-48.png" width="25px;"></a></li>
+                <li><a href="#"><img src="asset/icons8-bag-32.png" width="25px;"></a></li>
+            </ul>
+        </div>
+
+
+    </nav>
+    <img src="asset/treatment hair.jpg" width="1250px" />
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">
+            <h2 style="padding-top:40px;" class="home">HOME</h2>
+        </a>
+        <hr>
+        <div class="menu-content">
+            <ul type="list">
+                <a href="aboutus.html">
+                    <li>ABOUT US</li>
+                </a>
+                <br>
+                <a href="eyebrow..html">
+                    <li>EYEBROW</li>
+                </a>
+                <br>
+                <a href="eyeliner.html">
+                    <li>EYELINER</li>
+                </a>
+                <br>
+                <a href="lips.html">
+                    <li>LIPS</li>
+                </a>
+                <br>
+                <a href="hairshadow.html">
+                    <li>HAIR SHADOW</li>
+                </a>
+                <br>
+                <a href="lashtreatment.html">
+                    <li>LASH TREATMENT</li>
+                </a>
+                <br>
+                <a href="nailservice.html">
+                    <li>NAIL SERVICE</li>
+                </a>
+                <br>
+                <a href="skintreatment.html">
+                    <li>SKIN TREATMENT</li>
+                </a>
+                <br>
+                <a href="facetreatment.html">
+                    <li>FACE TREATMENT</li>
+                </a>
+                <br>
+                <a href="laser.html">
+                    <li>LASER</li>
+                </a>
+                <br>
+            </ul>
+        </div>
+    </div>
+
+</body>
+<script>
+    const img1 = document.getElementById("img1");
+    const img2 = document.getElementById("img2");
+    let current = 1;
+
+    setInterval(() => {
+        if (current === 1) {
+            img1.classList.remove("active");
+            img2.classList.add("active");
+            current = 2;
+        } else {
+            img2.classList.remove("active");
+            img1.classList.add("active");
+            current = 1;
+        }
+    }, 4000); // Ganti gambar setiap 4 detik
+    const menuBtn = document.querySelector('.menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+</script>
+
+
+</html>
